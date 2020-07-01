@@ -1,0 +1,10 @@
+# because on hks we have a staging jenkins that is being used as prod we need to separate it.
+# I created another Playbook named jenkins2 that is our second jenkins in staging, when we have a prod jenkins we can just delete one playbook.
+- hosts: jenkins
+  name: login
+  become: yes
+  become_method: sudo
+  become_user: root
+  roles:
+    - jenkins-requirements
+    - jenkins
